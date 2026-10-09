@@ -38,6 +38,8 @@ from boku.release import (
     main_release,
     main_release_row,
 )
+from boku.review_pilot import add_arguments as add_review_pilot_arguments
+from boku.review_preview import add_arguments as add_review_preview_arguments
 from boku.save import add_arguments as add_save_arguments
 from boku.texture_text import TEXTURE_TEXT_DIR
 from boku.texture_text import main_check as main_texture_check
@@ -648,6 +650,19 @@ def build_parser() -> argparse.ArgumentParser:
                 "a row still holds Japanese, or a speaker is not a style-guide label. Run "
                 "`./make.sh lint-translation` after."
             ),
+        )
+    )
+
+    add_review_pilot_arguments(
+        subcommands.add_parser(
+            "review-pilot",
+            help="export complete events for local review, or validate and stage their edits",
+        )
+    )
+
+    add_review_preview_arguments(
+        subcommands.add_parser(
+            "review-preview", help="recompute exact local previews and spreadsheet review data"
         )
     )
 

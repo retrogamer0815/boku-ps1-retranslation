@@ -102,6 +102,14 @@ usage: ./make.sh <verb> [arguments]
                                 its day file, replacing its block or placing it at its
                                 place in the packet's order.txt (--order)
                                 (./make.sh save-event --help for the switches)
+  review-pilot export|import [arguments]
+                                lossless local event review through JSON; imports validate
+                                with the build/linter and stage a new file under work/
+                                (./make.sh review-pilot --help for the switches)
+  review-preview BUNDLE [arguments]
+                                recompute exact fit and local source/mockup previews;
+                                accept workbook CSV edits through the lossless pilot
+                                (./make.sh review-preview --help for the switches)
   mockup [arguments]            draw every page of the translation files with the font
                                 sheet's glyphs at the dialogue band's geometry, one PNG
                                 per scene under work/mockup/ -- no emulator; needs
@@ -378,6 +386,12 @@ case "$verb" in
         ;;
     save-event)
         exec uv run boku save-event "$@"
+        ;;
+    review-pilot)
+        exec uv run boku review-pilot "$@"
+        ;;
+    review-preview)
+        exec uv run boku review-preview "$@"
         ;;
     mockup)
         exec uv run python tools/vwf/mockup.py "$@"

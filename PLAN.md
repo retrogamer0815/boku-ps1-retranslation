@@ -5,6 +5,24 @@ The **live task list only** — open work, nothing else. What the project is:
 been learned: [research/](research/). Rules for agents: [CLAUDE.md](CLAUDE.md). History of
 completed work: git.
 
+## Human translation fork
+
+The upstream ledger below is retained as project history and technical context. This fork's
+owner directs the human-review work; upstream agent assignments and Jay's historical
+preferences do not replace that direction.
+
+- [ ] **[HUM-01] Publish the first human pilot as a reproducible prerelease.** The owner has
+      accepted the corrected pilot in DuckStation (2026-10-09). Prepare the 13 reviewed
+      entries, tooling and provenance for a clean commit; rebuild from its tag, verify the
+      xdelta-only download by applying it back, and add the actual release hashes to README.
+      Publication must clearly identify the remaining English as inherited AI translation.
+      Harmed if omitted: testers cannot identify or reproduce the human-reviewed build.
+- [ ] **[HUM-02] Expand review in complete conversations after the pilot release.** Export
+      the next Day 1 batch with its original context, page/choice slots and current font
+      profile. Keep approval per entry, with repository lint/mockups and emulator checks
+      before accepting the batch. Harmed if omitted: translators lack context and later
+      edits could be mistaken for previously reviewed text.
+
 **Conventions.** Every item carries a stable id, assigned once, never renumbered, never reused;
 cite items as `PLAN TXT-01`, never by line. An item names **who is harmed** if it is not done —
 a player, a contributor, or a future agent reasoning from a false claim; no harmed party, no

@@ -1,4 +1,26 @@
-# Boku no Natsuyasumi, in English
+# Boku no Natsuyasumi - human translation fork
+
+This fork of [jeapostrophe/boku-ps1](https://github.com/jeapostrophe/boku-ps1) gradually
+replaces the upstream AI-written English with a faithful translation reviewed by a
+Japanese-fluent human. It retains the upstream proportional font, horizontal dialogue
+and choices, relocation, page handling, and build/lint/mockup tools.
+
+**Human review currently covers 13 entries in three Day 1 events: E0171, E0184 and E0112.**
+Eleven entries have new wording; two were accepted unchanged. The remaining English is
+inherited from upstream and has not yet received this fork's human review. The wordless
+E0184.2 sound effect remains unsubtitled. Per-entry coverage is recorded in
+[translation/human-review.tsv](translation/human-review.tsv).
+
+The corrected pilot passed repository layout checks and Beetle PSX tests. The fork owner
+also confirmed that it looks correct in DuckStation on 2026-10-09. The first planned
+prerelease is `v0.0.1-testpilot.1`; it is not published yet.
+
+Translators work in a review spreadsheet with original Japanese reference, conversation
+context, and automatic previews of the actual font widths and wrapping. Repository lint
+and game-font mockups remain the final authority. The contributor workflow is in
+[translation/README.md](translation/README.md), under "Local human review pilot".
+
+The game-wide features and historical decisions below describe the upstream foundation.
 
 An English translation patch for the PlayStation original of *Boku no Natsuyasumi*
 (ぼくのなつやすみ, SCEI / Millennium Kitchen, 2000, **SCPS-10088**): a nine-year-old boy spends
@@ -13,7 +35,7 @@ a picture diary.
 
 Nothing is cut to fit. It is a patch, not the game: you need your own copy of the Japanese disc.
 
-Made by [Jay McCarthy](https://jeapostrophe.github.io/) with Claude —
+Upstream foundation made by [Jay McCarthy](https://jeapostrophe.github.io/) with Claude —
 [why](#why-i-made-this), and [how](#how-the-translation-is-made).
 
 **[Get the patch](../../releases)** · [how to apply it](#getting-it) ·
@@ -27,7 +49,7 @@ Made by [Jay McCarthy](https://jeapostrophe.github.io/) with Claude —
 | <img src="docs/screenshots/conversation.png" width="320" alt="Boku's family arriving at the uncle's house, seen from above, with a line of dialogue in a band under the scene: Father, in Japanese quotation brackets, saying his son will be in their care over the summer vacation."><br>A conversation: English in a band under the scene, the speaker named as the original names him. | <img src="docs/screenshots/insect-book.png" width="320" alt="The insect encyclopedia open at the Musk Swallowtail: a photograph of the butterfly, its family, wingspan and food, and two columns of description, all in English."><br>The insect encyclopedia. |
 | <img src="docs/screenshots/kite-book.png" width="320" alt="The kite encyclopedia open at the Square Kite, marked Beginner, with a paragraph in English on how it is built and flown."><br>The kite encyclopedia. | <img src="docs/screenshots/diary.png" width="320" alt="Boku's picture diary for August 1: his crayon drawing of himself daydreaming about the sea, a tree, a kite and watermelon, and under it four lines of his entry in English."><br>Boku's picture diary — one page for each day. |
 
-The patched game, running on Beetle PSX.
+Upstream screenshots of the patched game, running on Beetle PSX. They predate the human pilot.
 
 ## Video
 
@@ -35,9 +57,9 @@ The patched game, running on Beetle PSX.
 
 ## Getting it
 
-The patch is posted on this project's **[Releases page](../../releases)**, and each release
-carries its own step-by-step instructions and the checksums to check your files against. In
-short:
+This fork's test patches will appear on its **[Releases page](../../releases)**. Each release
+will state its human-review coverage, application instructions and checksums. The original
+upstream patch is available from [jeapostrophe/boku-ps1 releases](https://github.com/jeapostrophe/boku-ps1/releases).
 
 1. **Dump your own disc** of the Japanese game (SCPS-10088) to a raw image — a `.bin` with its
    `.cue`. If yours is a `.chd`, extract it with `chdman`.
@@ -56,17 +78,20 @@ made from it (`shasum -a 1`, `sha1sum`, or `certutil -hashfile <file> SHA1`) —
 the right-hand column. The xdelta and the PPF of a version make the same image. The middle
 column is the dump that version patches.
 
-| version | the image's SHA-1 |
-|---|---|
-| original | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa`
-| v1 | `3ab94dcb5338bd17a8cf848d931efc0476fc9aa4` |
+| version | your dump's SHA-1, before patching | the patched image's SHA-1 |
+|---|---|---|
+| v1 | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa` | `3ab94dcb5338bd17a8cf848d931efc0476fc9aa4` |
 
-A version is listed here as it is published.
+`v1` is the upstream release. Fork versions are added from their release manifests before
+publication; a version's release page states whether it is a prerelease.
 
 ## Where it is played
 
-The project is developed and played on Beetle PSX (the mednafen core, as in RetroArch) and
-DuckStation. It has never been tested on a real PlayStation.
+The upstream foundation is developed and played on Beetle PSX (the mednafen core, as in
+RetroArch) and DuckStation. This fork's first human pilot passed exact-text checks and
+visual inspection of all 19 dialogue pages in Beetle, including Yes/No cursor navigation
+and the No continuation. The fork owner reported a successful DuckStation review on
+2026-10-09. This pilot has not been tested on a real PlayStation.
 
 ## Who this is for, and what kind of translation it is
 
@@ -93,18 +118,31 @@ playing, so it is the one worth translating.
 
 ## How the translation is made
 
-**The English script is written by AI agents** — Claude, the strongest model available, under
+**This fork uses Japanese-fluent human review to replace the inherited English gradually.**
+The first batch covers 13 translatable entries across E0171, E0184 and E0112; 11 have new
+wording. Its three typo corrections were approved by the fork owner. Review status is
+separate from pixel fit, and neither the unreviewed remainder nor upstream's agent-review
+statuses count as human approval. The reviewed entries are listed in
+[translation/human-review.tsv](translation/human-review.tsv).
+
+Two non-blocking wording flags remain in this pilot: the linter asks the human reviewer
+to check whether "really" adds emphasis in E0112.2 and E0112.4. The accepted wording is
+preserved. This pilot's emulator checks do not constitute a whole-game playthrough.
+
+**The upstream English script was written by AI agents** — Claude, the strongest model available, under
 Jay's direction — not a sentence-at-a-time machine translation. The game's event scripts were
 decoded so that a translator sees a whole scene as the game plays it — which line follows
 which, where the choices branch, who is speaking — after reading a story bible, a style guide
 and a glossary written for this project. A second agent reviews every line against the
 Japanese, Jay reads the script and rules on the questions it raises, and then it gets played.
 The reverse engineering and the assembly patches that make room for English were done with
-Claude too. The project is made for Jay and his friends and published for anyone who wants it;
+Claude too. The upstream project was made for Jay and his friends and published for anyone who wants it;
 everything that produced the script is in the repository to inspect, and pull requests that
 improve it are welcome.
 
 ## Why I made this
+
+The following is upstream author Jay McCarthy's account, retained for attribution.
 
 I've known about *Boku no Natsuyasumi* for about 15 years, since Ray Barnholt talked about it
 on his podcast, [No More Whoppers](https://nomorewhoppers.libsyn.com/). Then I bought every issue of his magazine, SCROLL, as it came
@@ -120,6 +158,11 @@ and went with this... and it worked out!
 — Jay McCarthy, September 2026
 
 ## Related work and credit
+
+This fork's renderer, reverse engineering, build pipeline and initial English come from
+[Jay McCarthy's boku-ps1](https://github.com/jeapostrophe/boku-ps1), initially based on
+commit `04d3387fcc07c1a268a3fb0bab509ea0d05171a2`. The first replacement batch was curated
+by the fork owner's Japanese-fluent human collaborator. The upstream credits follow.
 
 None of these target the PS1 original's text, and all of them made this project's first day
 shorter. What each one knows is written up in

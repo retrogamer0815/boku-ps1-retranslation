@@ -10,11 +10,11 @@
 # E0104, then E0107 (the desk), E0113, E0122, E0141.
 
 # --- E0171: H02 -- front of the house, gate
-E0171.0	Father	My son will be in your care over the summer vacation.
-E0171.1	Father	This is his first time somewhere this rural, with so much nature still left, so... // he seems a little taken aback, but please look after him, everyone.
-E0171.2	Father	All right. Introduce yourself.
+E0171.0	Father	Thank you for looking after my son during summer vacation.
+E0171.1	Father	This is his first time coming to a rural place with so much nature, // so it seems like he's a bit taken aback. But I'm hoping you all look after him well!
+E0171.2	Father	Well then, why don't you introduce yourself?
 E0171.3	Boku	Hello. I'm Boku.
-# NOTE E0171.1: satoyama rendered "somewhere this rural" (glossary § 7).
+# NOTE E0171.1: human pilot uses "a rural place with so much nature"; see ../human-review.tsv.
 
 # --- E0173: H01 -- front of the house, gate
 E0173.0	Boku	Mom's tummy got big, so... // from today, for a month, until summer vacation is over, I'll be in your care.
@@ -57,10 +57,10 @@ E0182.0	Aunt	I'm your dad's little sister, Auntie Kaoru. We'll get along fine, a
 E0183.0	Aunt	This room is yours to use however you like.
 
 # --- E0184: G14 -- Boku's room
-E0184.0	Aunt	I left your futon out in the sun today until it surrendered, // so it's soft and fluffy, perfect for sleeping. // You'll sleep soundly, wrapped in the smell of sunshine.
-E0184.1	Boku	Yeah. Thanks, Auntie.
+E0184.0	Aunt	I gave your futon a good long sunbath today, until it couldn't take any more. // Now it's all soft and fluffy, perfect for sleeping. // You'll be able to sleep soundly, wrapped in the smell of sunshine.
+E0184.1	Boku	Yeah! Thanks Auntie!
 E0184.2	(voice only)
-E0184.3	Boku	Auntie's an amazing person. // This is like... a Futon Explosion!
+E0184.3	Boku	Auntie, you're amazing! // This is basically a FUTON EXPLOSION!
 
 # --- E0185: G13 -- Boku's room
 E0185.0	Aunt	Well then, until dinner... // there's about an hour left, I'd say? // Go and take a walk around the house or the garden. // But it's already late today, so no going into the mountains. // That's the rule at Auntie's house.
@@ -68,13 +68,13 @@ E0185.0	Aunt	Well then, until dinner... // there's about an hour left, I'd say? 
 # --- E0186: no text.
 
 # --- E0112: G01 -- living room
-E0112.0	Uncle	Boku-kun, is this the first time you've lived in a house with a veranda?
+E0112.0	Uncle	Hey Boku, is this your first time staying at an open air house?
 E0112.1	[SEL]	Yes | No
-# VOICE E0112.2: just -- just in case translates ichio
-E0112.2	Uncle	Wherever you are in this house, a cool, pleasant breeze comes in... // so we do have an electric fan, just in case, but we've hardly ever used it.
-E0112.3	Boku	Oh, I see.
-E0112.4	Uncle	Mm-hm. In the old days, houses were all like this. // When all the ground around is buried under concrete, // I suppose it wouldn't be like this...
-E0112.5	Uncle	The high ceilings are nice, aren't they?
+# NOTE E0112.2: the upstream "just in case" VOICE note no longer applies to this human revision.
+E0112.2	Uncle	In a house like this, anywhere you go you'll be able to feel a pleasant cool breeze. // So even though we have an electric fan, we never really need to use it!
+E0112.3	Boku	I see.
+E0112.4	Uncle	That's right, back in the day all houses used to be like this // but now with all the concrete surrounding the houses // I guess it wouldn't really work huh?
+E0112.5	Uncle	Having high ceilings sure is nice huh!
 
 # --- E0114: G07 -- foot of the stairs / hall
 E0114.0	Uncle	Boku-kun... // what are you planning to do for your summer research project?
