@@ -125,6 +125,10 @@ separate from pixel fit, and neither the unreviewed remainder nor upstream's age
 statuses count as human approval. The reviewed entries are listed in
 [translation/human-review.tsv](translation/human-review.tsv).
 
+Two non-blocking wording flags remain in this pilot: the linter asks the human reviewer
+to check whether "really" adds emphasis in E0112.2 and E0112.4. The accepted wording is
+preserved. This pilot's emulator checks do not constitute a whole-game playthrough.
+
 **The upstream English script was written by AI agents** — Claude, the strongest model available, under
 Jay's direction — not a sentence-at-a-time machine translation. The game's event scripts were
 decoded so that a translator sees a whole scene as the game plays it — which line follows
