@@ -1,0 +1,17 @@
+# Human-review coverage for this fork; upstream review states are separate.
+# Hash: UTF-8 English field including page/choice separators, without row newline.
+# A changed English hash requires a fresh review; no game source is stored here.
+id	file	state	date	english_sha256	note
+E0171.0	days/day01.txt	human-reviewed	2026-10-09	87a0ccb97c2917819856dbd80528964d5ce0091d2bc8dbdb5ec37b35661cb6fa	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0171.1	days/day01.txt	human-reviewed	2026-10-09	96a2b163e49a930c13a25a4742610b5dd3a541a871081295e9940280bd3a2713	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0171.2	days/day01.txt	human-reviewed	2026-10-09	5e4a4729e5352579fe3db9aa5a03d0a16fb46cec1c8287617a464241d1c53ecc	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0171.3	days/day01.txt	human-reviewed	2026-10-09	96955486a3d7e88d67d75472883fc85ea5a5ee689c030f8d0532cec3f14c19ba	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09; accepted unchanged
+E0184.0	days/day01.txt	human-reviewed	2026-10-09	88bd2301bf0af856062ba8e3fe4807e44a51ffac599b92bfc584f90078ebb567	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0184.1	days/day01.txt	human-reviewed	2026-10-09	ed3b2ece232d6b6414c14c98e8dd0fc8d315524e051679bf23e84e89c492b48a	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0184.3	days/day01.txt	human-reviewed	2026-10-09	75404d538494683483f956ecdd70f1be6e7f37fae6f69f2d94dafff24d486339	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0112.0	days/day01.txt	human-reviewed	2026-10-09	a8c2582476120a310ce2a157092fa54b19aa92d61ea4df023ae4ed4f600523b2	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0112.1	days/day01.txt	human-reviewed	2026-10-09	ef629a48ee94ea5603240cc1b53acb0973933a55cf6dc162e0777056a1d0d8b0	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09; accepted unchanged
+E0112.2	days/day01.txt	human-reviewed	2026-10-09	cd38cb9bf3af7ae88664ae31d9238ed0c292d2d2166b191914b604d5e112b69f	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09; non-blocking additive-word flag for really remains open
+E0112.3	days/day01.txt	human-reviewed	2026-10-09	420c703b11610f7b7a8e910dc406505b7bda360bb628955d4625a5a8d7c3005c	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09
+E0112.4	days/day01.txt	human-reviewed	2026-10-09	40cb72dafc20a67db7c29eb64c16d6b974feef0c56b1f874ada7cab940673280	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09; non-blocking additive-word flag for really remains open
+E0112.5	days/day01.txt	human-reviewed	2026-10-09	a827adee5685c89d0d59fa029be90150d53398073e71e3865625cc0a98652ac5	Human pilot 1; Beetle verified; owner reported DuckStation pass 2026-10-09

@@ -6,6 +6,14 @@ exists are [README.md](README.md); the open work is [PLAN.md](PLAN.md).
 
 ## Status
 
+* **This fork's human pilot.** Thirteen entries in E0171, E0184 and E0112 have human review;
+  eleven use replacement English in `translation/days/day01.txt`. Coverage and text hashes
+  are recorded separately in `translation/human-review.tsv`; `translation/status.tsv`
+  retains the upstream review history. All 21 page/choice previews matched repository
+  layout. All 19 dialogue pages and choice navigation passed Beetle checks, and the owner
+  reported a successful DuckStation review on 2026-10-09. The remaining status below
+  describes the inherited foundation, not whole-game human approval.
+
 * **Text.** The game draws English left to right, proportionally, in its own glyph sheet, in a
   translucent three-line band under the scene, with speaker labels in the original's
   `Uncle「…」` form and choice menus as rows beside the game's own hand. Every event of the 31
@@ -40,9 +48,10 @@ exists are [README.md](README.md); the open work is [PLAN.md](PLAN.md).
    patched game, the only pictures of it here (CLAUDE.md § "This repo is public").
 3. **Translation is keyed by line id.** Committed translation files hold English plus context
    notes written for this project, keyed by stable ids; the Japanese for an id exists only in
-   your local import. Agents translate on those ids directly. For reading it as a script there is a
-   read-only reader (`./make.sh reader`, PLAN `TRN-14`); there is no editable projection of the script to
-   keep in sync, and no `.po`/Weblate layer.
+   your local import. The human-review spreadsheet addresses those same ids. Its CSV is
+   validated and staged locally before an approved candidate enters the day files; it
+   never writes the repository directly. The read-only script reader remains available
+   (`./make.sh reader`, PLAN `TRN-14`). There is no `.po`/Weblate layer.
 4. **Quality over throughput.** Reverse engineering and translation run on the strongest
    available model even where that makes the project slower.
 5. **Reproducible from a verified dump.** One command takes a Redump-verified image to a
@@ -60,11 +69,11 @@ the lint measures every page and `./make.sh mockup` draws them. Scenes are reada
 outside the game, the Japanese beside the English, in a reader built for this project rather
 than a generic localization platform (`./make.sh reader`).
 
-The engineering does not care who wrote the English. The translation files are the only
-interface between the script and the build, so someone who wants to do a hand translation —
-or one into another language — should be able to replace those files and get a patch with
-all of the reverse engineering already done. That is an aspiration: this project will not
-test it, so expect to find the places where it quietly assumed its own workflow.
+The translation files remain the interface between the script and the build. This fork's
+human pilot exercises that interface through `review-pilot` and `review-preview`, retaining
+the renderer, page timing, choices and relocation. The spreadsheet ports the exact wrapping
+rules using measured character advances; repository lint and mockups decide whether an
+imported candidate fits. See `translation/README.md` for the round trip and its current scope.
 
 ## What gets translated
 
@@ -147,6 +156,7 @@ that reads the game needs them, and nothing they write is ever committed.
 | read the translation | `./make.sh reader` → `work/reader/index.html`: the whole translation in play order, the Japanese beside the English, each id one key to copy, the lint's findings on their lines. `build-days` rewrites it, and its header says which build it was read against |
 | check the translation | `./make.sh lint-translation` (ids, choice menus, page counts, fit in pixels, movie cues); `./make.sh mockup` (every page drawn at the band's geometry, no emulator); `./make.sh coverage` (per day, what the build did with every line); `./make.sh textures check` (the texture strings typeset, and what each refused) |
 | translate | `./make.sh packet` and `./make.sh save-event` — the workflow is [translation/README.md](translation/README.md) |
+| review in a spreadsheet | `./make.sh review-pilot export` for complete events; `./make.sh review-preview BUNDLE --csv FILE` to remeasure returned edits; `./make.sh review-pilot import` stages a candidate under ignored `work/`. See [translation/README.md](translation/README.md), "Local human review pilot", for arguments and approval status. |
 | time and see the movie subtitles | `./make.sh movies` (decode to `work/movies/`), `./make.sh movie-timing` (each cue against the transcripts), `./make.sh movie-review` (each cue on Beetle, with the narration) |
 | time and see the epilogues' subtitles | the times on their rows of `translation/clips.txt` ([translation/README.md](translation/README.md) § clips.txt); `./make.sh reader` draws each page over the still it meets, with a timeline of pages against pictures; `./make.sh epilogue-review` plays all five on Beetle and compares |
 | drive an emulator | `./make.sh smoke` (boot on both headless emulators), `boot-save`, `examine`, `sumo-bout` (Beetle from a generated save) |
@@ -174,6 +184,7 @@ tools/               the renderer build and page mock-ups (vwf/), headless PCSX-
                      PSX drivers (redux/, libretro/), Ghidra symbol scripts, the texture census
                      and plan, the diary redraw prototype
 translation/         the English and what a translator reads first (translation/README.md)
+translation/human-review.tsv  this fork's per-entry human review, keyed by id and English hash
 research/            what has been learned: formats, prior art, practice. One subject per file
                      (two are raw research-agent reports, framed as such at the top)
 research/data/       the tables a note would otherwise list; glyph-table.tsv and text-boxes.tsv
@@ -190,6 +201,21 @@ release/    (ignored)  cut releases, one release/v<version>/ each, with the patc
 ```
 
 ## Delivery
+
+For this fork, the first proposed tag is `v0.0.1-testpilot.1`, marked as a GitHub prerelease.
+Cut it from a clean commit containing the approved English and tooling, use `release --no-ppf`,
+and inspect the xdelta zip before publication. The optional PPF carries relocated original
+bytes and is excluded from this pilot's public assets. Images, BIOS, extracted Japanese,
+local review context and mockup pixels stay ignored. The published notes must state the
+13-entry human-review scope, known wording flags and verification results. Keep the release
+table derived from the packaged manifest; never substitute a local test image's hash for
+the clean release build's hash.
+
+Maintain this fork's tested work on `master`, with reviewed batches on working branches.
+Fetch upstream periodically and merge selected updates through an integration branch,
+checking conflicts, layout and the relevant emulator route before merging into the fork.
+Preserve published tags; publish changed release content under a new version. The upstream
+delivery mechanics follow.
 
 * **Public release:** a patch against the Redump-verified image, via GitHub Releases, with the
   base and result checksums stated. Never an image. Tag the commit `v<version>`, push the

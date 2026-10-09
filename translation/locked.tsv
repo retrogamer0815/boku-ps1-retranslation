@@ -6,7 +6,8 @@
 # id <TAB> match <TAB> words <TAB> whose and where from
 id	match	words	source
 # --- Jay's process review, 2026-09-21 (commit 73d7fb7)
-E0171.1	phrase	somewhere this rural	Jay, 2026-09-21 (73d7fb7; glossary satoyama); lost to the TRN-10 run, restored 2026-09-25 (TRN-18)
+# Superseded in this fork by the owner-approved human pilot, 2026-10-09.
+# Historical lock: E0171.1	phrase	somewhere this rural	Jay, 2026-09-21 (73d7fb7; glossary satoyama); lost to the TRN-10 run, restored 2026-09-25 (TRN-18)
 E0175.0	phrase	This is the Sorano house, and I'm your Uncle Yusaku.	Jay, 2026-09-21 (73d7fb7); lost to the TRN-10 run, restored 2026-09-25 (TRN-18)
 E0107.2	phrase	bug-collecting kit	Jay, 2026-09-21 (73d7fb7; glossary: "insect-collecting" read as stiff)
 E0113.1	phrase	bug-collecting kit	Jay, 2026-09-21 (73d7fb7)

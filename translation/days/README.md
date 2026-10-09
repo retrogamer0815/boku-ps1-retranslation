@@ -2,9 +2,11 @@
 
 One file per in-game day, `dayNN.txt`, holding every line of every event that can occur on
 that day — event ids `E<dd>xx` (day = id ÷ 100) in the order the game plays them, plus any
-day-independent event the day's flow hands over to, named in the file's header. Written by
-the translation agents (README § "How the translation is made"); reviewed against the
-Japanese by a second agent; then played. Licence: CC BY-SA 4.0 (`LICENSE-translation`).
+day-independent event the day's flow hands over to, named in the file's header. The inherited
+translation was written and reviewed by agents; this fork replaces it gradually through
+Japanese-fluent human review (README § "How the translation is made"). Per-entry human
+coverage is in [../human-review.tsv](../human-review.tsv). Licence: CC BY-SA 4.0
+(`LICENSE-translation`).
 
 The format is § Format below (ruled by Jay, PLAN `PIPE-02`; `boku/translation.py` loads it).
 That section is addressed to

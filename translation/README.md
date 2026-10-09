@@ -19,6 +19,172 @@ names the commit and the days build it was made from, and says so in red when th
 what the page shows: a translation file saved after the build began, or code or translation
 committed since the build's commit.
 
+## Local human review pilot (this fork)
+
+This fork is replacing inherited AI-written English through Japanese-fluent human review.
+The upstream workflow and Jay's historical decisions remain documented below; their review
+states do not establish human approval for this fork. The export starts every row as
+`unreviewed` and changes no day file in place.
+
+The first batch is now accepted: 13 translatable entries across E0171, E0184 and E0112,
+11 with replacement wording, plus the unchanged context-only E0184.2 row. The reviewed
+English is in `days/day01.txt`. All 19 dialogue pages passed Beetle inspection, and the
+owner confirmed a successful DuckStation review on 2026-10-09. English-only
+[human-review.tsv](human-review.tsv) records each reviewed id, its text SHA-256 and review
+date. The hash covers the UTF-8 English field including ` // ` and ` | ` separators,
+without the row's newline. A later wording change invalidates that recorded review until
+it is reviewed again; export tools do not automatically restore approval from this table.
+
+Two non-blocking linter flags remain for the reviewer: `really` in E0112.2 and E0112.4.
+They have not been suppressed or used to rewrite the human wording. The obsolete upstream
+E0112.2 VOICE annotation and E0171.1 translation note were updated for the accepted text.
+The upstream phrase lock on E0171.1 was retired with its history preserved in a comment;
+the owner's instruction to replace AI wording with the reviewed human text governs this
+fork. The remaining upstream locks continue to apply until explicitly superseded.
+
+With an imported/extracted disc and the renderer's `build/vwf/edits.json` available:
+
+```sh
+./make.sh review-pilot export --out work/human-review/export
+./make.sh review-pilot import work/human-review/export --out work/human-review/noop
+```
+
+The default selection is three complete Day 1 events: E0171, E0184 and E0112 (14 rows,
+including an empty voice-only row, multiple pages and a choice). `--source FILE` and
+`--events EVENT...` select other complete event blocks from one day file or `shared.txt`.
+Both commands accept `--disc DIR` and `--cells FILE` for an existing baseline checkout.
+Every output directory must be new and inside this checkout's ignored `work/`.
+
+The export contains:
+
+* `review.json`: stable line IDs, speaker, event grouping, order and turn positions,
+  start/continue/end/single markers, inherited English, editable segments and review status.
+  Edit only each segment's `translation` and the row's `review_status` (`unreviewed`,
+  `draft`, `human-reviewed`, or `needs-revision`). A successful fit check never grants human
+  approval. Page slots correspond to ` // `; select slots distinguish leading prompts
+  from answers and retain their order. Empty voice-only rows remain empty in this pilot.
+* `manifest.json` and `source.txt`: the immutable export description and exact source bytes.
+  Imports refuse a changed source or manifest, missing/duplicate IDs, changed metadata or
+  page/choice slots. Sorting review rows does not reorder the script.
+* `context.json`: complete selected scene graphs, conditions, occurrences, original page
+  timing and source lines from the local extraction. This is original-game data: keep it
+  local and ignored; never commit or upload it. The full English file and comments are in
+  `source.txt`. Turn/boundary markers describe an event's message list; branches and repeat
+  visits are governed by the scene graph, not a guaranteed linear conversation.
+* `fit.json`: actual wrapped lines, measured pixel widths and line limits from
+  `boku.build.lay_out`, using the supplied renderer edit set. The complete candidate file
+  is also checked by the existing translation linter. Text, edit-set and Python-code hashes
+  identify the result. Each import measures again; exported fit results are never trusted.
+
+After editing `review.json`, import into another fresh directory. `--review FILE` can use
+an edited copy while retaining the export. A successful import stages the complete `.txt`
+file plus the edited review and fit report. It preserves all unchanged bytes, including
+comments and line endings; a no-op must be byte-identical. A validation failure writes a
+report but no candidate translation file. The tracked translation remains untouched.
+
+Check a staged result with the upstream tools before applying any human-approved wording:
+
+```sh
+./make.sh lint-translation work/human-review/edited/day01.txt
+./make.sh mockup work/human-review/edited/day01.txt --events E0171 E0184 E0112 \
+  --out work/human-review/mockup
+```
+
+Pass the same baseline import to `--disc`, and the same font edit set to the linter's
+`--cells` and mockup's `--edits`, when using nondefault paths. Mockups contain game glyph
+pixels and stay local under `work/` too. These tools remain the final authority on fit;
+pixel sums in a future spreadsheet must not implement different wrapping rules.
+
+The JSON pilot is the underlying contract. The preview and workbook workflow below uses it.
+Cross-file/shared occurrence management, changing page structure or speaker labels, and new
+voice subtitles are later steps. Arrays, movies and texture text are outside this pilot.
+No renderer, relocation, page-timing or translation-loader rules are changed.
+
+### Exact preview and review workbook
+
+`./make.sh review-preview` recomputes the fit through the same build and lint functions,
+then draws the selected events through the upstream mockup generator. It produces a local
+`index.html` with the Japanese source, full scene graphs and actual game-font mockups, plus
+an English-only `workbook-data.json` for the review workbook. All outputs stay under `work/`.
+
+```sh
+./make.sh review-preview work/human-review/export --out work/human-review/preview
+```
+
+The workbook keeps the earlier review workflow's conversation grouping, play order, speaker,
+turn position, boundary and human-review status. `Translation Batch` has one row per line
+ID. `Human English` is editable; blank means retain `Upstream English`. Keep ` // ` page
+breaks and ` | ` choice fields in their original positions. `Review notes` is a separate
+editable field; notes stay in a sidecar rather than rewriting existing day-file comments.
+`Page Preview` lists the exact wrapped lines and pixel widths for each page or choice field.
+Use the companion local HTML for game-font pixels, not the workbook's display font.
+The default workbook data remains English-only. With the owner's explicit authorization,
+the review Sheet may include an `Original Japanese` reference column immediately after
+`Speaker`, populated by line ID from the local script store. Preserve the source's page
+and choice boundaries; label voice-only entries as having no written source. This reference
+text must never enter tracked files. Game glyph images and other original assets stay local.
+
+The initial offline workbook uses validated snapshots. Changing
+the effective English makes the row say `NEEDS CHECK` and clears old counts, widths and page
+previews. Matching uses case-sensitive `EXACT`, because capitalization can change glyph
+widths. A changed layout profile also invalidates the cached results. Recompute after any
+source, font or layout-code change; an offline workbook cannot detect changed local files.
+`FITS` describes layout only. It never grants human translation approval.
+
+The published Google Sheets pilot now has an automatic pixel preview. Enter translations
+in column E (`Human English`); G (`Fit`), H:J and `Page Preview` recalculate on each edit.
+No chat, local server, script authorization or manual button is needed. Column F remains
+the human review decision. Preserve the literal ` // ` and ` | ` separators, including
+their spaces. `OVERFLOW` means a page exceeds its width or three-line limit, or a choice
+exceeds its single-line limit. Other messages identify unsupported characters, controls,
+outer spaces, altered page/choice counts, voice-only text or changed immutable context.
+
+`boku.review_sheet.profile(manifest, store, encoder, select_box)` extracts the renderer's
+numeric character advances and original speaker/quotation wrappers.
+`workbook_formulas(profile)` generates the hidden calculation matrices and the two visible
+formula blocks for this 16-column pilot. These are preparation functions, with no network
+writes. Keep generated profiles and readback evidence under ignored `work/`; publishing
+the dump-derived measurements requires the owner's authorization. The current Sheet has
+that authorization for its 99 character-width measurements, with no glyph images uploaded.
+
+The formulas port `boku.layout.wrap`: numeric Unicode lookups preserve case-sensitive
+widths, repeated spaces and conditional hyphen splitting. They include labels and quotation
+marks, keep each original page slot, enforce 272/272/238 px dialogue limits, and measure
+choices without wrapping at 248 px. `Validated layout` retains the earlier local snapshot;
+the live preview uses `_Font metrics`, `_Live fit` and `_Live pages`. The hidden
+`_Preview tests` tab contains comparison fixtures, not translation input.
+
+Native Sheets verification covered 214 wrapping/width cases, 15 input checks and all 21
+page/choice rows in the current batch against the actual repository layout functions.
+Editing and restoring a pilot input also verified automatic overflow and unsupported-character
+errors. Evidence is local in `work/human-translation-preview/live-sheet-r2/`.
+Before changing the font, wrapping code or reviewed event selection, regenerate the profile
+from the verified pilot manifest and current edit set, and repeat the native comparisons.
+Sheets cannot detect local repository changes. Its display font is only a reading aid;
+repository lint and game-font mockups remain the final authority before a build.
+
+Download the entire `Translation Batch` tab as CSV after editing, then run:
+
+```sh
+./make.sh review-preview work/human-review/export --csv review.csv \
+  --out work/human-review/checked
+```
+
+Pass the existing baseline's `--disc` and `--cells` paths when needed, as with the pilot.
+The CSV reader verifies IDs and immutable context, preserves notes, rejects changed page or
+choice counts, and ignores every imported fit formula/result. It writes a checked `review.json`
+and new previews without modifying the translation source. Feed that JSON back to
+`./make.sh review-pilot import ... --review ...` to stage an accepted candidate. A downloaded
+subset or missing row is refused. Sorting the full tab is safe because imports use IDs.
+The optional `Original Japanese` column is ignored on import; it cannot change the English,
+review notes, or fit measurements. Refreshed `workbook-data.json` stays English-only, so
+retain the authorized reference column when updating an existing Sheet.
+
+The initial local workbook has been tested for recalculation, case-sensitive text changes,
+layout-profile changes, CSV round trips and exact mockup reproduction. The live Sheets
+preview does not write back to the repository; use the checked CSV import above. The older
+workbook and experimental project remain reference material and are not modified.
+
 ## Translating the whole game
 
 Jay, 2026-09-23: one translator session is given everything — the story bible, the style
@@ -69,6 +235,11 @@ Every answer still goes through the independent review against the Japanese
 words in [locked.tsv](#lockedtsv) is not applied: it goes to Jay.
 
 ## locked.tsv
+
+This section records upstream policy. In this fork, the owner can accept a human revision
+that supersedes an upstream wording lock. Record that decision beside the affected lock;
+do not bypass the lock checker or change unrelated locks. Retired locks remain comments
+so their provenance is preserved.
 
 The words Jay chose for particular lines: what he wrote or dictated into a line, a name he
 heard, a wording he picked from options put to him about that line (`work/review/decisions.html`).
