@@ -1,39 +1,43 @@
 An English translation patch for the PlayStation original of *Boku no Natsuyasumi*
 (SCPS-10088, 2000). Version $version, built from commit `$commit` ($built_from).
 
-**This is a patch, not the game.** You need your own dump of the Japanese disc; nothing here
-contains it, and nothing here is ever sold.
+The patch requires a legally obtained dump of the original Japanese disc. Game images and
+BIOS files are not included.
 
 ## What is in English
 
-$coverage The voices stay Japanese on purpose: this is a translation with subtitles, not a dub.
+$coverage These unit statuses describe the upstream workflow; human-review coverage is
+recorded separately in `translation/human-review.tsv`. The original Japanese voices are
+retained with English subtitles.
 
 ## Download
 
-`$bundle` is the download, under the names the instructions below use:
+`$bundle` contains:
 
 * `$xdelta` — the patch (xdelta3).
 * `$cue` — the cue sheet for the patched image.
-* `PATCH.json` and `README.txt` — both sides' hashes, for a script and for a person.
+* `PATCH.json` and `README.txt` — patch metadata, checksums and application instructions.
+* `RELEASE-NOTES.md` — the release notes included at publication.
 
-## What you need
+## Requirements
 
-A raw dump of the Japanese disc, one MODE2/2352 track, matching Redump ($redump). Hash it
-before you patch: if these do not match, the patch is not for your file.
+A raw dump of the Japanese disc containing one MODE2/2352 track, matching Redump ($redump).
+The original image must match the following checksums before patching:
 
 $original_table
 
 ## How to apply it
 
-1. **Extract** your CHD to a raw image ([chdman](https://docs.mamedev.org/tools/chdman.html)
+1. **Extract** a CHD to a raw image ([chdman](https://docs.mamedev.org/tools/chdman.html)
    ships with MAME; `brew install rom-tools` on macOS):
 
    ```
-   chdman extractcd -i "your dump.chd" -o "$base_stem.cue" -ob "$base_name"
+   chdman extractcd -i "original.chd" -o "$base_stem.cue" -ob "$base_name"
    ```
 
-   A BIN/CUE dump needs no extraction; use its `.bin`. Never patch a `.iso` (2048-byte
-   sectors) or the `.chd` itself.
+   Here, `original.chd` is a placeholder for the source CHD filename. A BIN/CUE dump needs
+   no extraction; use its `.bin`. The patch does not apply directly to a `.chd` or an `.iso`
+   with 2048-byte sectors.
 
 2. **Hash** the image and compare its SHA-1 with `$base_sha1`:
 
@@ -56,18 +60,18 @@ $original_table
 
    The browser patcher RomPatcher.js cannot apply this patch.
 
-4. **Play**: put `$cue` beside `$result_name` and open the `.cue` in your emulator. You
-   can recompress with `chdman createcd -i "$cue" -o "patched.chd"`.
+4. **Load the game**: put `$cue` beside `$result_name` and open the `.cue` in an emulator.
+   Optional CHD compression: `chdman createcd -i "$cue" -o "patched.chd"`.
 $ppf_section
-## What you should get
+## Patched image
 
-**A patched image whose SHA-1 is `$result_sha1` is v$version**, whatever the file is called.
-The README on the project's GitHub page lists every version's, under "$versions_heading".
+The expected SHA-1 for v$version is **`$result_sha1`**. The project README lists
+checksums for all published versions under "$versions_heading".
 
 $result_table
 
-`README.txt` in the download says all of this again, including what the patch does and does
-not check for you.
+`README.txt` in the download includes application instructions and explains the patch's
+validation checks.
 
 ## Where it is played
 
@@ -83,9 +87,9 @@ $credits
 
 ## Licence
 
-The tools and patches' source are MIT; the English script and its context notes are
-CC BY-SA 4.0 — both in the source archive attached to this release. These patches were
-built from a clone of the repository at this release's tag, with `./make.sh import` on a
-dump and then `./make.sh release`. *Boku no Natsuyasumi* is © Sony
+The tools and patch source are licensed under MIT; the English script and its context notes
+are licensed under CC BY-SA 4.0. Both licences are included in the source archive. The patch
+was built from this release's tag using the repository's import and release tooling.
+*Boku no Natsuyasumi* is © Sony
 Interactive Entertainment; this project distributes none of it and is not affiliated with
-Sony or Millennium Kitchen. Paths in `code` above are files in the source archive.
+Sony or Millennium Kitchen. Repository paths shown above refer to files in the source archive.

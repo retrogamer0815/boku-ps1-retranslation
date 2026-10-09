@@ -1,8 +1,9 @@
 # Boku no Natsuyasumi - human translation fork
 
-This fork of [jeapostrophe/boku-ps1](https://github.com/jeapostrophe/boku-ps1) gradually
-replaces the upstream AI-written English with a faithful translation reviewed by a
-Japanese-fluent human. It retains the upstream proportional font, horizontal dialogue
+This project is an ongoing English retranslation of *Boku no Natsuyasumi* for PlayStation,
+built on [jeapostrophe/boku-ps1](https://github.com/jeapostrophe/boku-ps1). It gradually
+replaces the upstream AI-written English with a faithful, human-reviewed translation of
+the original Japanese. It retains the upstream proportional font, horizontal dialogue
 and choices, relocation, page handling, and build/lint/mockup tools.
 
 **Human review currently covers 13 entries in three Day 1 events: E0171, E0184 and E0112.**
@@ -11,8 +12,8 @@ inherited from upstream and has not yet received this fork's human review. The w
 E0184.2 sound effect remains unsubtitled. Per-entry coverage is recorded in
 [translation/human-review.tsv](translation/human-review.tsv).
 
-The corrected pilot passed repository layout checks and Beetle PSX tests. The fork owner
-also confirmed that it looks correct in DuckStation on 2026-10-09. The first prerelease,
+The pilot passed repository layout checks and testing in Beetle PSX and DuckStation
+(2026-10-09). The first prerelease,
 [v0.0.1-testpilot.1](https://github.com/retrogamer0815/boku-ps1-retranslation/releases/tag/v0.0.1-testpilot.1),
 is available as an xdelta-only download and reproduces that tested image.
 
@@ -34,7 +35,7 @@ a picture diary.
 * **Subtitles** for the narrated movies, the theme song, the five endings and the other
   voice-only lines. The voices stay Japanese, on purpose.
 
-Nothing is cut to fit. It is a patch, not the game: you need your own copy of the Japanese disc.
+The patch requires a legally obtained dump of the original Japanese disc.
 
 Upstream foundation made by [Jay McCarthy](https://jeapostrophe.github.io/) with Claude —
 [why](#why-i-made-this), and [how](#how-the-translation-is-made).
@@ -62,20 +63,19 @@ This fork's test patches are on its **[Releases page](../../releases)**. Each re
 states its human-review coverage, application instructions and checksums. The original
 upstream patch is available from [jeapostrophe/boku-ps1 releases](https://github.com/jeapostrophe/boku-ps1/releases).
 
-1. **Dump your own disc** of the Japanese game (SCPS-10088) to a raw image — a `.bin` with its
-   `.cue`. If yours is a `.chd`, extract it with `chdman`.
-2. **Check it**: the release gives the SHA-1 your image must have. If it differs, the patch is
-   not for your file.
-3. **Patch it** with `xdelta3` (or MultiPatch, on macOS).
-4. **Play it**: open the `.cue` that comes with the patch in your emulator.
+1. **Prepare a disc dump** of the Japanese game (SCPS-10088) as a raw `.bin` image with its
+   `.cue` sheet. Extract CHD files with `chdman` first.
+2. **Verify the image**: its SHA-1 must match the original-image checksum listed in the release.
+3. **Apply the patch** with `xdelta3` (or MultiPatch, on macOS).
+4. **Load the game**: open the supplied `.cue` in an emulator.
 
-When a release also lists a PPF download, DuckStation can apply that as it loads your
-unpatched disc instead; the release says how.
+Releases that include an optional PPF download also provide instructions for applying it
+at load time in DuckStation.
 
 ## Which version do I have?
 
-Take the SHA-1 of your patched image — the `.img` the patch wrote, not the `.cue` or a `.chd`
-made from it (`shasum -a 1`, `sha1sum`, or `certutil -hashfile <file> SHA1`) — and find it in
+Calculate the SHA-1 of the patched `.img` file (`shasum -a 1`, `sha1sum`, or
+`certutil -hashfile <file> SHA1`) and find it in
 the right-hand column. The xdelta and the PPF of a version make the same image. The middle
 column is the dump that version patches.
 
@@ -92,7 +92,7 @@ publication; a version's release page states whether it is a prerelease.
 The upstream foundation is developed and played on Beetle PSX (the mednafen core, as in
 RetroArch) and DuckStation. This fork's first human pilot passed exact-text checks and
 visual inspection of all 19 dialogue pages in Beetle, including Yes/No cursor navigation
-and the No continuation. The fork owner reported a successful DuckStation review on
+and the No continuation. Testing in DuckStation was also completed successfully on
 2026-10-09. This pilot has not been tested on a real PlayStation.
 
 ## Who this is for, and what kind of translation it is
@@ -120,27 +120,23 @@ playing, so it is the one worth translating.
 
 ## How the translation is made
 
-**This fork uses Japanese-fluent human review to replace the inherited English gradually.**
+**Human translation and review gradually replace the inherited English.**
 The first batch covers 13 translatable entries across E0171, E0184 and E0112; 11 have new
-wording. Its three typo corrections were approved by the fork owner. Review status is
-separate from pixel fit, and neither the unreviewed remainder nor upstream's agent-review
-statuses count as human approval. The reviewed entries are listed in
+wording and two were accepted unchanged. Translation review and pixel-fit validation are
+tracked separately. Upstream agent-review statuses do not indicate human review.
+The reviewed entries are listed in
 [translation/human-review.tsv](translation/human-review.tsv).
 
-Two non-blocking wording flags remain in this pilot: the linter asks the human reviewer
-to check whether "really" adds emphasis in E0112.2 and E0112.4. The accepted wording is
+Two non-blocking wording flags remain in this pilot, concerning whether "really" adds
+emphasis in E0112.2 and E0112.4. The accepted wording is
 preserved. This pilot's emulator checks do not constitute a whole-game playthrough.
 
-**The upstream English script was written by AI agents** — Claude, the strongest model available, under
-Jay's direction — not a sentence-at-a-time machine translation. The game's event scripts were
-decoded so that a translator sees a whole scene as the game plays it — which line follows
-which, where the choices branch, who is speaking — after reading a story bible, a style guide
-and a glossary written for this project. A second agent reviews every line against the
-Japanese, Jay reads the script and rules on the questions it raises, and then it gets played.
-The reverse engineering and the assembly patches that make room for English were done with
-Claude too. The upstream project was made for Jay and his friends and published for anyone who wants it;
-everything that produced the script is in the repository to inspect, and pull requests that
-improve it are welcome.
+**The upstream English script was written by AI agents using Claude under Jay McCarthy's
+direction.** Decoded event scripts provided scene context, dialogue order, branching choices
+and speaker information, alongside a story bible, style guide and glossary. The upstream
+workflow included a second agent's review against the Japanese, editorial decisions by Jay,
+and in-game testing. Claude also assisted with the reverse engineering and assembly patches.
+The translation sources, tools and documentation are available in this repository.
 
 ## Why I made this
 
@@ -163,11 +159,11 @@ and went with this... and it worked out!
 
 This fork's renderer, reverse engineering, build pipeline and initial English come from
 [Jay McCarthy's boku-ps1](https://github.com/jeapostrophe/boku-ps1), initially based on
-commit `04d3387fcc07c1a268a3fb0bab509ea0d05171a2`. The first replacement batch was curated
-by the fork owner's Japanese-fluent human collaborator. The upstream credits follow.
+commit `04d3387fcc07c1a268a3fb0bab509ea0d05171a2`. The pilot translation was prepared and
+reviewed by a Japanese-fluent contributor. The upstream credits follow.
 
-None of these target the PS1 original's text, and all of them made this project's first day
-shorter. What each one knows is written up in
+The following projects provided tools and research used by the upstream project. Their
+contributions are described in
 [research/related-projects.md](research/related-projects.md).
 
 * [pleonex/Boku-no-Natsuyasumi](https://github.com/pleonex/Boku-no-Natsuyasumi) — PSP port
@@ -184,10 +180,10 @@ shorter. What each one knows is written up in
 
 ## Contributing
 
-The whole project is in this repository — the tools, the format notes, the translation and
-its history — and the game itself is not: you bring your own dump. [TECHNICAL.md](TECHNICAL.md) says
-how the patch is built and how to build it yourself; the open work is [PLAN.md](PLAN.md). Pull
-requests are welcome, and so are disagreements about style.
+This repository contains the tools, format notes, translation and project history. Building
+the patch requires a local import of a legally obtained game dump. Build instructions are in
+[TECHNICAL.md](TECHNICAL.md), and planned work is tracked in [PLAN.md](PLAN.md).
+Contributions to the translation, tooling and documentation are welcome.
 
 ## Licence
 

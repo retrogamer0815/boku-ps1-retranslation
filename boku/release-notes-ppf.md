@@ -1,9 +1,10 @@
 
 ### Optional: the PPF, for DuckStation
 
-While the release page lists it, `$ppf_bundle` is a separate download holding the same patch as a
-PPF, with its own `PATCH.json`, `README.txt` and the cue sheet. DuckStation applies it
-without patching anything: give `$ppf` your CHD's name with `.ppf` in place of `.chd`
-(`Boku.chd` → `Boku.ppf`), put it beside the CHD, and tick *Settings → CD-ROM → Apply Image
-Patches*, which is off by default. DuckStation checks nothing, and the hashes above are of
-the extracted image, not the CHD — extract it once (steps 1 and 2) to check your dump.
+While the release page lists it, `$ppf_bundle` provides the same patch in PPF format,
+with its own `PATCH.json`, `README.txt` and cue sheet. DuckStation can apply it at load time
+without modifying the disc image. Rename `$ppf` to match the CHD filename with a `.ppf`
+extension (`Boku.chd` → `Boku.ppf`), place it beside the CHD, and enable
+*Settings → CD-ROM → Apply Image Patches*, which is off by default. DuckStation does not
+verify the source-image checksums. The hashes above describe the extracted image, so
+steps 1 and 2 are required to verify a CHD dump.
