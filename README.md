@@ -12,8 +12,9 @@ E0184.2 sound effect remains unsubtitled. Per-entry coverage is recorded in
 [translation/human-review.tsv](translation/human-review.tsv).
 
 The corrected pilot passed repository layout checks and Beetle PSX tests. The fork owner
-also confirmed that it looks correct in DuckStation on 2026-10-09. The first planned
-prerelease is `v0.0.1-testpilot.1`; it is not published yet.
+also confirmed that it looks correct in DuckStation on 2026-10-09. The first prerelease,
+[v0.0.1-testpilot.1](https://github.com/retrogamer0815/boku-ps1-retranslation/releases/tag/v0.0.1-testpilot.1),
+is available as an xdelta-only download and reproduces that tested image.
 
 Translators work in a review spreadsheet with original Japanese reference, conversation
 context, and automatic previews of the actual font widths and wrapping. Repository lint
@@ -57,8 +58,8 @@ Upstream screenshots of the patched game, running on Beetle PSX. They predate th
 
 ## Getting it
 
-This fork's test patches will appear on its **[Releases page](../../releases)**. Each release
-will state its human-review coverage, application instructions and checksums. The original
+This fork's test patches are on its **[Releases page](../../releases)**. Each release
+states its human-review coverage, application instructions and checksums. The original
 upstream patch is available from [jeapostrophe/boku-ps1 releases](https://github.com/jeapostrophe/boku-ps1/releases).
 
 1. **Dump your own disc** of the Japanese game (SCPS-10088) to a raw image — a `.bin` with its

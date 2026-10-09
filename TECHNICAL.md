@@ -202,8 +202,8 @@ release/    (ignored)  cut releases, one release/v<version>/ each, with the patc
 
 ## Delivery
 
-For this fork, the first proposed tag is `v0.0.1-testpilot.1`, marked as a GitHub prerelease.
-Cut it from a clean commit containing the approved English and tooling, use `release --no-ppf`,
+This fork's first published prerelease is `v0.0.1-testpilot.1`, with an xdelta-only download.
+Cut subsequent prereleases from a clean commit containing the approved English and tooling, use `release --no-ppf`,
 and inspect the xdelta zip before publication. The optional PPF carries relocated original
 bytes and is excluded from this pilot's public assets. Images, BIOS, extracted Japanese,
 local review context and mockup pixels stay ignored. The published notes must state the

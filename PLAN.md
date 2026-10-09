@@ -11,12 +11,12 @@ The upstream ledger below is retained as project history and technical context. 
 owner directs the human-review work; upstream agent assignments and Jay's historical
 preferences do not replace that direction.
 
-- [ ] **[HUM-01] Publish the first human pilot as a reproducible prerelease.** The owner has
-      accepted the corrected pilot in DuckStation (2026-10-09). Prepare the 13 reviewed
-      entries, tooling and provenance for a clean commit; rebuild from its tag, verify the
-      xdelta-only download by applying it back, and add the actual release hashes to README.
-      Publication must clearly identify the remaining English as inherited AI translation.
-      Harmed if omitted: testers cannot identify or reproduce the human-reviewed build.
+- [x] **[HUM-01] Publish the first human pilot as a reproducible prerelease.** DONE
+      2026-10-09: `v0.0.1-testpilot.1`, built from clean commit `33743ee6`, published on this
+      fork after PR #1. The xdelta-only ZIP was applied back and matches the owner-tested
+      DuckStation image (`d782546041cec62608445fa53e06399004df7ac1`). GitHub's uploaded
+      asset digest matches the local ZIP. README lists hashes from the packaged manifest;
+      the release states the 13-entry human-review scope and remaining inherited AI text.
 - [ ] **[HUM-02] Expand review in complete conversations after the pilot release.** Export
       the next Day 1 batch with its original context, page/choice slots and current font
       profile. Keep approval per entry, with repository lint/mockups and emulator checks
