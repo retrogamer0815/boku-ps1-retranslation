@@ -81,6 +81,7 @@ column is the dump that version patches.
 | version | your dump's SHA-1, before patching | the patched image's SHA-1 |
 |---|---|---|
 | v1 | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa` | `3ab94dcb5338bd17a8cf848d931efc0476fc9aa4` |
+| v0.0.1-testpilot.1 | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa` | `d782546041cec62608445fa53e06399004df7ac1` |
 
 `v1` is the upstream release. Fork versions are added from their release manifests before
 publication; a version's release page states whether it is a prerelease.
