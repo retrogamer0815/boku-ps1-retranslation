@@ -13,6 +13,12 @@ upstream English. The wordless E0184.2 sound effect remains unsubtitled. Per-ent
 and text hashes are recorded in
 [translation/human-review.tsv](translation/human-review.tsv).
 
+The current prerelease,
+[v0.0.2-day1.1](https://github.com/retrogamer0815/boku-ps1-retranslation/releases/tag/v0.0.2-day1.1),
+includes this Day 1 batch and white dialogue text over a translucent black window.
+The xdelta-only download passed patch verification and targeted Beetle PSX checks.
+Day 2's workbook is prepared, but no Day 2 human revision is included yet.
+
 The earlier 13-entry pilot passed repository layout checks and testing in Beetle PSX and DuckStation
 (2026-10-09). The first prerelease,
 [v0.0.1-testpilot.1](https://github.com/retrogamer0815/boku-ps1-retranslation/releases/tag/v0.0.1-testpilot.1),
@@ -90,6 +96,7 @@ column is the dump that version patches.
 |---|---|---|
 | v1 | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa` | `3ab94dcb5338bd17a8cf848d931efc0476fc9aa4` |
 | v0.0.1-testpilot.1 | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa` | `d782546041cec62608445fa53e06399004df7ac1` |
+| v0.0.2-day1.1 | `5959bf7d9835d0a60aeb0143e2d0fc564bfea9fa` | `bad7fcbbeba99491614277eff5e3548b7e0e80b9` |
 
 `v1` is the upstream release. Fork versions are added from their release manifests before
 publication; a version's release page states whether it is a prerelease.
