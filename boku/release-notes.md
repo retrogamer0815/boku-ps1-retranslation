@@ -1,3 +1,44 @@
+## Day 1 retranslation and dark dialogue
+
+This prerelease expands the human translation from the earlier 13-entry pilot to the
+full Day 1 chapter file: **85 translatable entries across 25 events, with 83 marked
+human-reviewed and two still draft**. The reviewed English was prepared by a
+Japanese-fluent contributor using the original Japanese as reference.
+
+The batch covers the arrival and family introductions, Boku's room and futon,
+conversations around the house and garden, dinner, and the evening conversations about
+the collecting kit, model airplane and television. E0121.5 and E0121.6, in the laundry
+conversation, remain drafts. The wordless E0184.2 entry remains unsubtitled.
+
+Day 2's review workbook is prepared, but no Day 2 human revision is included yet. Later
+days, shared interactions, menus, movies and illustrated text retain the upstream
+translation unless listed in `translation/human-review.tsv`.
+
+### Window and text design
+
+Dialogue now uses **white proportional text over a translucent black window**. The
+background remains visible at half brightness, and dialogue glyphs use one crisp white
+pass without the previous shadow. The compact window keeps its existing position and
+size. The visibility timing is unchanged; the window appears at a fixed opacity.
+
+The proportional font, wrapping, page breaks, speaker labels and three-line capacity are
+unchanged, so existing spreadsheet fit checks still apply. Horizontal choices retain
+their white-on-dark design. Shared menus and movie subtitles keep their existing styling.
+
+### Review status
+
+All 122 Day 1 page/choice previews match the repository's wrapping and width checks.
+The candidate passed build and image-readback checks and targeted Beetle PSX testing.
+Full Day 1 emulator review and real-hardware testing remain pending. Seven non-blocking
+wording warnings remain documented alongside the two drafts. This is a test prerelease
+of an ongoing retranslation, not a fully human-reviewed translation of the whole game.
+
+The download applies directly to the matching original Japanese image. An upstream v1
+image or an earlier English patch is not required. A fresh emulator boot is recommended;
+old save states can retain the previous executable and scripts.
+
+## Build
+
 An English translation patch for the PlayStation original of *Boku no Natsuyasumi*
 (SCPS-10088, 2000). Version $version, built from commit `$commit` ($built_from).
 

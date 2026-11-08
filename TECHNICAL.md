@@ -17,8 +17,8 @@ exists are [README.md](README.md); the open work is [PLAN.md](PLAN.md).
   no Day 2 human revision is imported yet. The remaining status below describes the
   inherited foundation, not whole-game human approval.
 
-* **Optional dialogue appearance.** `--dialogue-theme dark` builds white dialogue on a
-  half-brightness black band. The light theme remains the default. Metrics, page timing,
+* **Dialogue appearance.** Standard builds select `--dialogue-theme dark`: white dialogue
+  on a half-brightness black band. A light control build remains available. Metrics, page timing,
   choices and relocation are unchanged; details and validation are in
   [docs/dialogue-theme.md](docs/dialogue-theme.md).
 

@@ -257,7 +257,7 @@ cmd_build_days() {
     # reads as newer than the build (boku.reader.stale_build).
     mkdir -p build && touch "$began"
     echo "== 1/3: assembling the TXT-05 renderer -> $font/edits.json =="
-    uv run python tools/vwf/build_prototype.py --edits-only --out "$font"
+    uv run python tools/vwf/build_prototype.py --edits-only --dialogue-theme dark --out "$font"
     echo
     echo "== 2/3: building translation/days through it -> build/days/ =="
     uv run boku build --vwf "$font/edits.json" --translation translation/days \

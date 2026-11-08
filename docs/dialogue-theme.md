@@ -1,10 +1,12 @@
-# Optional dark dialogue appearance
+# Dark dialogue appearance
 
 The renderer can use the earlier experimental project's dark dialogue appearance:
 single-pass white glyphs over a semi-transparent black panel. The implementation is
 part of this fork's assembly renderer; it does not import the old patch engine.
 
-The default remains `light`. Build a separate candidate from an imported original disc:
+Standard `./make.sh build-days` and release builds select the dark theme, starting with
+the Day 1 prerelease `v0.0.2-day1.1`. The earlier `v0.0.1-testpilot.1` keeps its light
+appearance. To build a separate dark candidate from an imported original disc:
 
 ```sh
 uv run python tools/vwf/build_prototype.py --edits-only --dialogue-theme dark \
@@ -20,8 +22,9 @@ fresh boot is suitable. The commands leave previous builds and the imported disc
 Use the intended staged translation directory instead of `translation/days` when testing
 unmerged spreadsheet edits.
 
-`--dialogue-theme light` restores the upstream appearance. `./make.sh build-days` and
-release builds still select that default; the dark candidate is opt-in pending review.
+For a light control build, use `--dialogue-theme light` in the first command, then build
+with the resulting edit set. The low-level prototype tool still defaults to `light`
+when that switch is omitted; the standard build entry point selects `dark` explicitly.
 
 ## Appearance and boundaries
 

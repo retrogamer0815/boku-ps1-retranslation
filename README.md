@@ -24,9 +24,10 @@ context, and automatic previews of the actual font widths and wrapping. Reposito
 and game-font mockups remain the final authority. The contributor workflow is in
 [translation/README.md](translation/README.md), under "Local human review pilot".
 
-An optional [dark dialogue appearance](docs/dialogue-theme.md) uses white text over a
-translucent black band while preserving the same font metrics and wrapping. It is a
-separate test build option; the default and published pilot retain the light appearance.
+Standard builds use a [dark dialogue appearance](docs/dialogue-theme.md): white text over
+a translucent black band, with the same font metrics and wrapping. The Day 1 prerelease
+uses this design; the earlier 13-entry pilot retains its light appearance. A light control
+build remains available through the renderer's theme option.
 
 The game-wide features and historical decisions below describe the upstream foundation.
 
@@ -135,9 +136,10 @@ are tracked separately. Upstream agent-review statuses do not indicate human rev
 The reviewed entries are listed in
 [translation/human-review.tsv](translation/human-review.tsv).
 
-Two non-blocking wording flags remain in this pilot, concerning whether "really" adds
-emphasis in E0112.2 and E0112.4. The accepted wording is
-preserved. This pilot's emulator checks do not constitute a whole-game playthrough.
+Seven non-blocking additive-word warnings remain in the Day 1 batch: E0112.2, E0112.4,
+E0114.1, E0114.9, E0121.1, E0121.4 and E0121.7. The human wording is preserved for review.
+The two drafts are E0121.5 and E0121.6. Full Day 1 emulator review remains pending;
+the earlier pilot's checks do not constitute a whole-game playthrough.
 
 **The upstream English script was written by AI agents using Claude under Jay McCarthy's
 direction.** Decoded event scripts provided scene context, dialogue order, branching choices
