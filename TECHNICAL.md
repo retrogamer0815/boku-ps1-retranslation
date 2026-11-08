@@ -6,13 +6,21 @@ exists are [README.md](README.md); the open work is [PLAN.md](PLAN.md).
 
 ## Status
 
-* **This fork's human pilot.** Thirteen entries in E0171, E0184 and E0112 have human review;
-  eleven use replacement English in `translation/days/day01.txt`. Coverage and text hashes
-  are recorded separately in `translation/human-review.tsv`; `translation/status.tsv`
-  retains the upstream review history. All 21 page/choice previews matched repository
-  layout. All 19 dialogue pages and choice navigation passed Beetle checks, and the owner
-  reported a successful DuckStation review on 2026-10-09. The remaining status below
-  describes the inherited foundation, not whole-game human approval.
+* **This fork's human translation.** `translation/days/day01.txt` contains the Day 1
+  snapshot used in Test 007 (2026-11-06): 83 human-reviewed entries, two drafts and one
+  empty voice-only row. All 122 page/choice previews matched repository layout, and all
+  85 translated entries were read back from the test image. Full Day 1 emulator review
+  remains pending. The earlier 13-entry pilot passed Beetle and owner-reported DuckStation
+  review on 2026-10-09 and is the published prerelease. Coverage and text hashes are in
+  `translation/human-review.tsv`; `translation/status.tsv` retains upstream history.
+  Day 2's workbook has 60 translatable entries and 95 verified page/choice previews;
+  no Day 2 human revision is imported yet. The remaining status below describes the
+  inherited foundation, not whole-game human approval.
+
+* **Optional dialogue appearance.** `--dialogue-theme dark` builds white dialogue on a
+  half-brightness black band. The light theme remains the default. Metrics, page timing,
+  choices and relocation are unchanged; details and validation are in
+  [docs/dialogue-theme.md](docs/dialogue-theme.md).
 
 * **Text.** The game draws English left to right, proportionally, in its own glyph sheet, in a
   translucent three-line band under the scene, with speaker labels in the original's
@@ -179,6 +187,7 @@ make.sh              every recurring command (./make.sh help)
 boku/                the Python package behind the verbs; boku/faces/ holds the two small pixel
                      faces drawn for this project (Bean, Sprout)
 asm/                 armips source for the executable and overlay patches
+docs/dialogue-theme.md  the optional dark dialogue build, boundaries and validation
 tests/               pytest; the disc-dependent tests skip when there is no import
 tools/               the renderer build and page mock-ups (vwf/), headless PCSX-Redux and Beetle
                      PSX drivers (redux/, libretro/), Ghidra symbol scripts, the texture census
@@ -206,8 +215,9 @@ This fork's first published prerelease is `v0.0.1-testpilot.1`, with an xdelta-o
 Cut subsequent prereleases from a clean commit containing the approved English and tooling, use `release --no-ppf`,
 and inspect the xdelta zip before publication. The optional PPF carries relocated original
 bytes and is excluded from this pilot's public assets. Images, BIOS, extracted Japanese,
-local review context and mockup pixels stay ignored. The published notes must state the
-13-entry human-review scope, known wording flags and verification results. Keep the release
+local review context and mockup pixels stay ignored. Each release's notes must state its
+own human-review scope, remaining drafts, wording flags and verification results. The
+existing prerelease retains its 13-entry scope; updating source does not replace it. Keep the release
 table derived from the packaged manifest; never substitute a local test image's hash for
 the clean release build's hash.
 

@@ -73,6 +73,21 @@ def test_a_character_with_no_cell_is_drawn_as_a_red_block():
     assert m.OVER in {canvas.get(x, CELL // 2) for x in range(canvas.width)}
 
 
+def test_dark_dialogue_preview_uses_one_white_pass_without_changing_choice_previews():
+    m = mockup()
+    light, dark = geometry(), m.vwf.Layout(dialogue_theme="dark")
+    encoder = bar_font({"A": 5, "B": 7})
+    tile = m.page_tile(["AB"], [12], "", dark, DIALOGUE_BAND, encoder, lambda c: BAR)
+    row = dark.pen_y - m.page_top(dark) + CELL // 2
+    assert ink_columns(tile, row, (255, 255, 255)) == [dark.pen_x, dark.pen_x + 5]
+    assert ink_columns(tile, row, m.SHADOW) == []
+    assert tile.get(dark.pen_x + 1, row) == tuple(c // 2 for c in m.SCENE)
+    for widths in ([12], [dark.select_width + 1]):
+        before = m.select_tile(["AB"], widths, "", light, encoder, lambda c: BAR)
+        after = m.select_tile(["AB"], widths, "", dark, encoder, lambda c: BAR)
+        assert before.pixels == after.pixels
+
+
 def lines_drawn_in(canvas, colour, geometry, top) -> set[int]:
     """Which line slots (1-based) hold `colour` on their middle row. A glyph is taller than
     the pitch, so only the middle row belongs to one line alone."""

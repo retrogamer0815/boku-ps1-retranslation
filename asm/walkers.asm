@@ -368,6 +368,12 @@ vwf_step_sysmsg_across:             ; sysmsg_draw across: s3 += width; s2 += wid
     jr      t8
     addu    s2, s2, t9
 
+; The optional theme uses the remaining 100 bytes here, not the PC-host tail which
+; the translated arrays need. The surrounding .area refuses any collision or growth.
+.if DIALOGUE_DARK
+.include "dialogue_theme_resident.asm"
+.endif
+
 vwf_island_free:                    ; first unclaimed byte, reported by the build
 .endarea
 .endif

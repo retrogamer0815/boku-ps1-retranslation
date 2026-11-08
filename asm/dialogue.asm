@@ -61,6 +61,8 @@
 .if ORIGINAL
     .dh     224                     ; stock: brightness 224
     .dh     1                       ; stock: opaque
+.elseif DIALOGUE_DARK
+    .dh     0, 2                   ; black, semi-transparent; dialogue_theme.asm sets ABR 0
 .else
     .dh     BAND_BRIGHTNESS
     .dh     BAND_BLEND

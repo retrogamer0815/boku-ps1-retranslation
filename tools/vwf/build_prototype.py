@@ -171,6 +171,9 @@ class Layout:
     """`g_dlgbox_fade[6]`, the level the band sits at while a message is up: stock is
     (224, 1), opaque; (168, 2) is entry 5, additive over the scene -- the translucent look
     Jay chose (2026-09-20; research/renderer-runtime.md § Q2 item 4)."""
+    dialogue_theme: str = "light"
+    """`dark`: half-brightness black backing and single-pass white dialogue glyphs.
+    Overrides band brightness/blend, without changing font metrics or other surfaces."""
     map_area_extra: int = 0x1800
     """Bytes added to the engine's `0x6400` map work area. It costs twice itself from the
     gap between the fixed arena's end and the stack; `asm/arena.asm` holds the guard that
@@ -216,11 +219,14 @@ class Layout:
         "fixed_advance",
         "band_brightness",
         "band_blend",
+        "dialogue_dark",
         "map_area_extra",
     )
     """Fields `asm/vwf.asm` takes as `-equ NAME`, upper-cased."""
 
     def __post_init__(self) -> None:
+        if self.dialogue_theme not in ("light", "dark"):
+            raise BuildRefused("--dialogue-theme must be light or dark")
         if self.advance_model not in ("c1", "c2"):
             raise BuildRefused(f"--advance-model is c1 or c2, not {self.advance_model!r}")
         if self.cursor not in CURSOR_DX:
@@ -231,6 +237,10 @@ class Layout:
             raise BuildRefused("--sel-cursor-dx must be <= 0: the box's corner is measured from it")
         if self.map_area_extra < 0 or self.map_area_extra % 4:
             raise BuildRefused("--map-area-extra is a non-negative multiple of 4 (a word count)")
+
+    @property
+    def dialogue_dark(self) -> int:
+        return int(self.dialogue_theme == "dark")
 
     @property
     def map_work_area_end(self) -> int:
@@ -1441,6 +1451,7 @@ def build(args: argparse.Namespace) -> dict[str, object]:
         **{name: getattr(args, name) for name in LAYOUT_ARGUMENTS},
         advance_model=args.advance_model,
         cursor=args.cursor,
+        dialogue_theme=args.dialogue_theme,
     )
     source, out = Path(args.image), Path(args.out).resolve()
     if (REPO / "disc").resolve() in [out, *out.parents]:
@@ -1743,6 +1754,13 @@ def main() -> int:
         ),
     )
     defaults = Layout()
+    parser.add_argument(
+        "--dialogue-theme",
+        choices=("light", "dark"),
+        default=defaults.dialogue_theme,
+        help="light (default): additive pale band; dark: 50%% black band and crisp white "
+        "dialogue, overriding --band-brightness/--band-blend. Font metrics stay the same.",
+    )
     for name in LAYOUT_ARGUMENTS:
         # The field's default, not the instance's: `sel_cursor_dx` is resolved from
         # `--cursor` in `__post_init__`, and an argparse default read off a built `Layout`

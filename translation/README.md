@@ -26,7 +26,7 @@ The upstream workflow and Jay's historical decisions remain documented below; th
 states do not establish human approval for this fork. The export starts every row as
 `unreviewed` and changes no day file in place.
 
-The first batch is now accepted: 13 translatable entries across E0171, E0184 and E0112,
+The first accepted batch contained 13 translatable entries across E0171, E0184 and E0112,
 11 with replacement wording, plus the unchanged context-only E0184.2 row. The reviewed
 English is in `days/day01.txt`. All 19 dialogue pages passed Beetle inspection, and the
 owner confirmed a successful DuckStation review on 2026-10-09. English-only
@@ -40,7 +40,33 @@ They have not been suppressed or used to rewrite the human wording. The obsolete
 E0112.2 VOICE annotation and E0171.1 translation note were updated for the accepted text.
 The upstream phrase lock on E0171.1 was retired with its history preserved in a comment;
 the owner's instruction to replace AI wording with the reviewed human text governs this
-fork. The remaining upstream locks continue to apply until explicitly superseded.
+fork. The full Day 1 import below supersedes seven more locks; other upstream locks remain.
+
+### Full-day review batches
+
+The current `days/day01.txt` is the English snapshot used in Test 007 on 2026-11-06:
+85 translatable entries across 25 events, of which 83 are marked `human-reviewed` and
+E0121.5/E0121.6 remain `draft`. The wordless E0184.2 row stays empty. All column E edits
+from that snapshot are preserved exactly; the import does not silently proofread them.
+`human-review.tsv` records both approved and draft text hashes. These statuses describe
+translation review, not completion of a full-day emulator playthrough.
+
+All 122 page/choice previews matched the repository; the test image readback verified
+all 85 entries. Beetle checks covered the opening route, while a full Day 1 emulator
+review remains pending. Seven additive-word warnings remain for human consideration:
+E0112.2, E0112.4, E0114.1, E0114.9, E0121.1, E0121.4 and E0121.7. Historical upstream
+phrase locks superseded by this batch are retained as comments in `locked.tsv`.
+
+The Day 2 workbook is prepared from `days/day02.txt`: 60 translatable entries across
+12 events, 95 page/choice previews, and one hidden wordless voice-only row (E0202.6).
+It retains original Japanese references, complete event groups and automatic width checks.
+E0205 is labelled as available from Day 3 with the fishing rod; shared breakfast, dinner
+and dinner-guessing events remain separate batches. No Day 2 human revision is imported yet.
+
+The private workbooks and exports include original reference material and stay outside
+Git. Public source contains the English day files, review hashes, tooling and documentation.
+
+### Export and import
 
 With an imported/extracted disc and the renderer's `build/vwf/edits.json` available:
 

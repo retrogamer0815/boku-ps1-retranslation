@@ -20,6 +20,8 @@
 ;   -equ BAND_BRIGHTNESS, BAND_BLEND
 ;                       dialogue: g_dlgbox_fade[6], the band's brightness and blend
 ;                       (semitrans + 1) while a message is up; stock 224, 1
+;   -equ DIALOGUE_DARK  1: black average-blended band and single-pass white dialogue;
+;                       overrides BAND_BRIGHTNESS/BAND_BLEND, leaves metrics alone
 ;   -equ MAP_AREA_EXTRA bytes added to the engine's 0x6400 map work area (arena.asm)
 ;   -equ SEL_X, SEL_Y   select: top-left of the first option row's first cell
 ;   -equ SEL_PITCH      select: rows between option rows
@@ -88,6 +90,7 @@ VOICE_SHOW_SPLIT      equ 0x800374EC
 VOICE_SHOW_ISLAND_END equ 0x80037524
 
 .include "dialogue.asm"
+.include "dialogue_theme.asm"
 .include "select.asm"
 .include "arena.asm"
 .include "voice.asm"

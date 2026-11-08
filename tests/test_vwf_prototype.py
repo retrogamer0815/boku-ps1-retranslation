@@ -646,6 +646,7 @@ def prototype_arguments(tool, out: Path, **extra) -> argparse.Namespace:
         "edits_only": False,
         "advance_model": defaults.advance_model,
         "cursor": defaults.cursor,
+        "dialogue_theme": defaults.dialogue_theme,
     }
     for name in tool.LAYOUT_ARGUMENTS:
         arguments[name] = tool.Layout.__dataclass_fields__[name].default

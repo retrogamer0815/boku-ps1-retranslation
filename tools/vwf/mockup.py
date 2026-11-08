@@ -165,7 +165,15 @@ def _lit(rows: tuple[int, ...]) -> tuple[tuple[int, int], ...]:
 
 
 def draw_run(
-    canvas: Canvas, x: int, y: int, text: str, encoder: Encoder, glyphs: Glyphs, ink: Colour
+    canvas: Canvas,
+    x: int,
+    y: int,
+    text: str,
+    encoder: Encoder,
+    glyphs: Glyphs,
+    ink: Colour,
+    *,
+    shadow: bool = True,
 ) -> int:
     """Draw `text` from pen `(x, y)` the way the hooked renderer does: shadow then glyph,
     the pen advancing by the cell map's advance. A character the font has no cell for is
@@ -177,7 +185,8 @@ def draw_run(
             canvas.fill(x, y + 2, max(advance - 1, 1), CELL - 4, OVER)
         else:
             lit = _lit(tuple(glyphs(cell)))
-            for shade, dx in ((SHADOW, SHADOW_DX), (ink, 0)):
+            passes = ((SHADOW, SHADOW_DX), (ink, 0)) if shadow else ((ink, 0),)
+            for shade, dx in passes:
                 for column, row in lit:
                     canvas.put(x + column + dx, y + row, shade)
         x += advance
@@ -228,7 +237,10 @@ def page_tile(
     last = layout.pen_y + max(len(lines), box.lines) * layout.line_pitch + CELL
     bottom = max(layout.band_y + layout.band_h, last) + 2
     canvas = _captioned(bottom - top, caption, encoder, glyphs)
-    canvas.fill(0, layout.band_y - top, SCREEN_WIDTH, layout.band_h, BAND)
+    # The diagnostic scene is a flat colour, not a captured game background. For the
+    # optional dark theme, show its 50% black blend and single-pass glyphs over that.
+    band = tuple(c // 2 for c in SCENE) if layout.dialogue_dark else BAND
+    canvas.fill(0, layout.band_y - top, SCREEN_WIDTH, layout.band_h, band)
     if box.guarded_from:
         y = layout.pen_y - top + (box.guarded_from - 1) * layout.line_pitch
         x = layout.pen_x + box.guarded_width
@@ -236,7 +248,17 @@ def page_tile(
     for index, (line, width) in enumerate(zip(lines, widths, strict=True), start=1):
         over = index > box.lines or width > box.width_of_line(index)
         y = layout.pen_y - top + (index - 1) * layout.line_pitch
-        draw_run(canvas, layout.pen_x, y, line, encoder, glyphs, OVER if over else INK)
+        ink = (255, 255, 255) if layout.dialogue_dark else INK
+        draw_run(
+            canvas,
+            layout.pen_x,
+            y,
+            line,
+            encoder,
+            glyphs,
+            OVER if over else ink,
+            shadow=not layout.dialogue_dark,
+        )
     return canvas
 
 

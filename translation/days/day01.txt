@@ -17,44 +17,44 @@ E0171.3	Boku	Hello. I'm Boku.
 # NOTE E0171.1: human pilot uses "a rural place with so much nature"; see ../human-review.tsv.
 
 # --- E0173: H01 -- front of the house, gate
-E0173.0	Boku	Mom's tummy got big, so... // from today, for a month, until summer vacation is over, I'll be in your care.
+E0173.0	Boku	Mom's tummy got big, so... // so starting today, I'll be spending the next month of summer vacation here.
 
 # --- E0174: H03 -- front of the house, gate
-E0174.0	Boku	Mom's tummy got big, so... // from today, for a month, until summer vacation is over, I'll be in your care.
-E0174.1	Uncle	Nice to meet you, Boku-kun. That was a long trip. You did well.
+E0174.0	Boku	Mom's tummy got big, so... // so starting today, I'll be spending the next month of summer vacation here.
+E0174.1	Uncle	Nice to meet you Boku, you must be tired from that long trip.
 
 # --- E0172: close-up (I32), no text.
 
 # --- E0175: I31 -- introductions close-up
-E0175.0	Uncle	This is the Sorano house, and I'm your Uncle Yusaku. // From today, think of this place as your own home, and play here to your heart's content.
+E0175.0	Uncle	This is the Sorano household, and I'm your Uncle Yusaku. // From today, think of this place as your own home, and play here to your heart's content.
 # --- E0176: H02 -- front of the house, gate
-E0176.0	Uncle	All right, Onee-chan first.
+E0176.0	Uncle	Alright, let's start with the oldest.
 
 # --- E0177: I31 -- introductions close-up
-E0177.0	Moe	I'm Moe. // I'm the oldest daughter in this family. Nice to meet you.
-E0177.1	Shirabe	I'm Shirabe. It's written "poem" and pronounced "Shirabe".
+E0177.0	Moe	I'm Moe! // I'm the oldest daughter of this house. Nice to meet you!
+E0177.1	Shirabe	I'm Shirabe. S-H-I-R-A-B-E, if you're wondering.
 E0177.2	Shirabe	Our dad's cool, isn't he? // He's a ce-ra-mi-cist. He makes plates and rice bowls.
 # NOTE E0177.2: the Japanese writes toogeika (potter) in katakana: Shirabe is parroting a grown-up
 #   word she has heard (style guide § 8 kind 1), so the English word is spelled out syllable by syllable.
 
 
 # --- E0179: I31 -- introductions close-up
-E0179.0	Shirabe	I'm Shirabe. It's written "poem" and pronounced "Shirabe".
+E0179.0	Shirabe	I'm Shirabe. S-H-I-R-A-B-E, if you're wondering.
 E0179.1	Shirabe	Our dad's cool, isn't he? // He's a ce-ra-mi-cist. He makes plates and rice bowls.
 
 # --- E0180: H01 -- front of the house, gate
 # VOICE E0180.0: rather -- if anything rather renders dochira ka to iu to, the narrator's hedge, in his literary register
-E0180.0	Narrator	There, looking if anything rather unimpressive, stood my father...
+E0180.0	Narrator	And there stood my father, looking rather unimpressive.
 
 
 # --- E0181: H03 -- front of the house, gate
-E0181.0	Aunt	Do you remember Auntie? // I even changed your diapers once, you know.
+E0181.0	Aunt	Do you remember me? // I changed your diapers once or twice back when you were a baby.
 
 # --- E0182: I31 -- introductions close-up
-E0182.0	Aunt	I'm your dad's little sister, Auntie Kaoru. We'll get along fine, all right?
+E0182.0	Aunt	I'm your dads little sister, Kaoru. Nice to see you again, Boku.
 
 # --- E0183: G13 -- Boku's room
-E0183.0	Aunt	This room is yours to use however you like.
+E0183.0	Aunt	Please use this room as your own.
 
 # --- E0184: G14 -- Boku's room
 E0184.0	Aunt	I gave your futon a good long sunbath today, until it couldn't take any more. // Now it's all soft and fluffy, perfect for sleeping. // You'll be able to sleep soundly, wrapped in the smell of sunshine.
@@ -63,7 +63,7 @@ E0184.2	(voice only)
 E0184.3	Boku	Auntie, you're amazing! // This is basically a FUTON EXPLOSION!
 
 # --- E0185: G13 -- Boku's room
-E0185.0	Aunt	Well then, until dinner... // there's about an hour left, I'd say? // Go and take a walk around the house or the garden. // But it's already late today, so no going into the mountains. // That's the rule at Auntie's house.
+E0185.0	Aunt	Well, until dinner time we got about... // an hour or so? // Feel free to explore the house or out in the yard. // But, since it's already getting late today so no going to the mountain ok? // Auntie's rules.
 
 # --- E0186: no text.
 
@@ -77,85 +77,85 @@ E0112.4	Uncle	That's right, back in the day all houses used to be like this // b
 E0112.5	Uncle	Having high ceilings sure is nice huh!
 
 # --- E0114: G07 -- foot of the stairs / hall
-E0114.0	Uncle	Boku-kun... // what are you planning to do for your summer research project?
-E0114.1	Uncle	There's a bug-collecting kit in this house.
+E0114.0	Uncle	Boku, // You have a summer school research project don't cha?
+E0114.1	Uncle	Well, lucky for you, we actually have a bug collecting kit!
 # VOICE E0114.2: really -- translates honto as an exclamation
-E0114.2	Boku	Huh! Really?
-E0114.3	Uncle	Mm-hm. Uncle will give it to you as a present.
-E0114.4	Boku	Yay! All right!
-E0114.5	Uncle	But it's a hand-me-down from Uncle's child. // Is that all right?
-E0114.6	Boku	Yeah, that's fine! Show me, show me!
-E0114.7	Uncle	Then I'll bring it to you after dinner. // ...You are to wait for it in eager anticipation!
-E0114.8	Boku	Yeah. Thanks, Uncle.
-E0114.9	Narrator	I was so happy that my heart pounded as it does after a footrace...
+E0114.2	Boku	What! Really!?
+E0114.3	Uncle	Uh-huh, I'll give it to you as a present.
+E0114.4	Boku	All right!!
+E0114.5	Uncle	It's a family hand me down but... // That should be ok right?
+E0114.6	Boku	Yeah no problem! Now, let me see it!
+E0114.7	Uncle	Well you'll have to wait until after dinner. // Try not to get tooo excited!
+E0114.8	Boku	OK! Thanks!
+E0114.9	Narrator	I was so happy, my heart was racing as if I had just finished running a race.
 
 # --- E0121: G03 -- kitchen
-E0121.0	Aunt	Auntie does the washing first thing every morning when she gets up, // so if you have anything dirty, put it out the night before.
-E0121.1	Boku	I only brought one shirt and stuff.
-E0121.2	Aunt	Oh my.
+E0121.0	Aunt	Your aunt always does the laundry first thing in the morning. // So be sure to leave any dirty clothes out the night before okay?
+E0121.1	Boku	Well, I really only brought this one shirt...
+E0121.2	Aunt	Oh my...
 E0121.3	Boku	Dad was the one who packed my bag...
-E0121.4	Aunt	I see... // Well, you're a boy, so I suppose it doesn't matter.
-E0121.5	Aunt	I wonder if Onii-chan's old clothes would fit you?
-E0121.6	Boku	Huh? Onii-chan?
-E0121.7	Aunt	...Hm-hm. We'll have to try that experiment one of these days.
+E0121.4	Aunt	I see... // Well your just a boy, so I spose it'll be alright.
+E0121.5	Aunt	I wonder if his old clothes would fit...
+E0121.6	Boku	His?? Wonder who that is....
+E0121.7	Aunt	Well, we'll just have to give it a try one of these days!
 
 # --- E0140: H09 -- garden corner where Shirabe watches ants
-E0140.0	Boku	H-hello.
-E0140.1	Shirabe	...Hi.
+E0140.0	Boku	He...Hello.
+E0140.1	Shirabe	...hi
 E0140.2	Boku	What are you doing?
-E0140.3	Shirabe	...Playing.
-E0140.4	Boku	What was your name again...?
-E0140.5	Shirabe	I won't tell you!
+E0140.3	Shirabe	...playing
+E0140.4	Boku	What was your name again..?
+E0140.5	Shirabe	I'm not tellin!
 E0140.6	Boku	Huh?
 # VOICE E0140.7: just -- just kidding is the set English for uso, taking back what she said
-E0140.7	Shirabe	Oh... just kidding... // It's written "poem" and pronounced "Shirabe".
-E0140.8	Shirabe	I do most humbly beseech thy kind regard.
-E0140.9	Boku	And I, too, do most humbly beseech thy kind regard.
-E0140.10	Boku	Are you... mad at me or something?
-E0140.11	Shirabe	......
+E0140.7	Shirabe	Oh...just kiddin. // I'm Shirabe. You know, S-H-I-R-A-B-E.
+E0140.8	Shirabe	Pleased to make your acquaintance, sir.
+E0140.9	Boku	And to you as well, madam.
+E0140.10	Boku	Are you... mad at me?
+E0140.11	Shirabe	.....
 # NOTE E0140.8-.9: Shirabe's archaic, mock-formal yoroshiku (-masuru); Boku copies her wording
 #   exactly (style guide § 4), so the two lines match.
 
 # --- E0001: G14 -- Boku's room; I16 -- the view from the window
-E0001.0	Narrator	Far off, I could see the village of Sagi-no-sato at the foot of the mountain...
+E0001.0	Narrator	I could see the village of Sagi-no-sato at the foot of the mountain off in the distance...
 
 # --- E0190: A19
-E0190.0	Uncle	All right! Playtime is over for today! // Dinner's already reeeady!
+E0190.0	Uncle	Alright! Playtime is officially over! // Dinner's awaitin.
 
 # --- E0103: G02 -- dining room
-E0103.0	Uncle	Well then, itadakimasu!
-E0103.1	Shirabe, Moe, Aunt	Itadakimasu!
-E0103.2	Boku	...kimasu.
+E0103.0	Uncle	Well then, Let's eat!
+E0103.1	Shirabe, Moe, Aunt	Let's eat!
+E0103.2	Boku	....eat.
 # --- E0104: G02 -- dining room
-E0104.0	Uncle	Mm! That was delicious. // Gochisosama deshita.
-E0104.1	Shirabe, Moe, Aunt	Gochisosama deshita.
-E0104.2	Boku	...deshita.
-E0104.3	Uncle	Boku-kun, there's something nice on the desk upstairs.
-E0104.4	Boku	Something nice on the desk upstairs?
-E0104.5	Uncle	That's right. Go and have a look.
+E0104.0	Uncle	Mm! It was delicious! // Thank you for the meal!
+E0104.1	Shirabe, Moe, Aunt	Thank you for the meal!
+E0104.2	Boku	...for the meal.
+E0104.3	Uncle	Boku, there's something waiting for ya on your desk upstairs.
+E0104.4	Boku	Something on my desk?
+E0104.5	Uncle	That's right, go take a look.
 
 # --- E0107: G14 -- Boku's room; I19 -- the desk
-E0107.0	Boku	Huh...?
-E0107.1	Narrator	It was a picture of a leaden, sorrowful sunset sky // with two biplanes against it: the box of a plastic model kit.
+E0107.0	Boku	Huh?
+E0107.1	Narrator	It was a picture of  two biplanes flying through a leaden, sorrowful sunset sky // The box of a plastic model kit.
 # VOICE E0107.2: just -- just as translates -dori (as promised)
 E0107.2	Narrator	And inside the box, just as my uncle had promised, was a bug-collecting kit.
 
 # --- E0113: G01 -- living room
-E0113.0	Uncle	Hurry on up to your room upstairs // and go see the present on the desk.
-E0113.1	Uncle	Do you like the bug-collecting kit? // I think that was everything that came in the set... // The box seems to have gone missing, so... // Come to think of it, that plastic model was one Kaoru made a while back.
-E0113.2	Boku	Auntie, you build plastic models even though you're a girl?
-E0113.3	Aunt	Oh, is that strange? // Auntie loves making things, all kinds of things.
-E0113.4	Boku	Hey, where's the finished one?
-E0113.5	Uncle	It's on display by the window of Uncle's workshop. // Come and see it tomorrow, Boku-kun.
-E0113.6	Uncle	Kaoru, would you bring me a beer...?
-E0113.7	Aunt	Let's all do things for ourselves.
+E0113.0	Uncle	Hurry on up to your room upstairs. // Go take a look at the present I left for ya on your desk.
+E0113.1	Uncle	Did the insect collecting kit pique your interest? // Everything should be there, outside the box that is. // Seems as though its gone missing... // Come to think of it, that plastic model was one your aunt made a while back.
+E0113.2	Boku	Auntie, you built this model kit? Even though your a girl??
+E0113.3	Aunt	And what's so strange about that? // Your auntie loves building things you know.
+E0113.4	Boku	So.. Where's the finished model??
+E0113.5	Uncle	It's hanging up by the window out in my workshop. // Why don't you come pay me a visit tomorrow, Boku.
+E0113.6	Uncle	Kaoru, could ya bring me a beer...?
+E0113.7	Aunt	I'm sure you can handle that yourself.
 
 # --- E0122: G01 -- living room
 # VOICE E0122.0: just -- carries katte ni ... ii wa yo, the aunt's warm no-need-to-ask permission
-E0122.0	Aunt	If you get thirsty, there's barley tea or milk in the fridge, so just help yourself. // They're both homemade, so they're in the same kind of container. // And the milk sometimes has white lumps in it, // but those form when I boil it in a pan to sterilize it, so don't worry about them.
+E0122.0	Aunt	If you get thirsty, there's barley tea or milk in the fridge, so just help yourself. // They're both homemade, so we keep them in the same kind of container. // Oh also, the milk sometimes has white lumps in it, // but don't worry about it! Those just pop up sometimes when I boil the milk to sterilize it.
 
 # --- E0141: G06 -- TV room
-E0141.0	Boku	...What do you like on TV?
-E0141.1	Shirabe	Huh? Umm...
-E0141.2	Shirabe	The kind of thing girls like...
-E0141.3	Shirabe	Comedy sketches on TV are sometimes cruel and funny, aren't they...
+E0141.0	Boku	What TV shows do you like?
+E0141.1	Shirabe	Huh? ummm...
+E0141.2	Shirabe	Stuff that girls would like.
+E0141.3	Shirabe	Comedy sketches on TV sure are ruthless, but funny huh...

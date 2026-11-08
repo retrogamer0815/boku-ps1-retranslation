@@ -8,10 +8,13 @@ id	match	words	source
 # --- Jay's process review, 2026-09-21 (commit 73d7fb7)
 # Superseded in this fork by the owner-approved human pilot, 2026-10-09.
 # Historical lock: E0171.1	phrase	somewhere this rural	Jay, 2026-09-21 (73d7fb7; glossary satoyama); lost to the TRN-10 run, restored 2026-09-25 (TRN-18)
-E0175.0	phrase	This is the Sorano house, and I'm your Uncle Yusaku.	Jay, 2026-09-21 (73d7fb7); lost to the TRN-10 run, restored 2026-09-25 (TRN-18)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0175.0	phrase	This is the Sorano house, and I'm your Uncle Yusaku.	Jay, 2026-09-21 (73d7fb7); lost to the TRN-10 run, restored 2026-09-25 (TRN-18)
 E0107.2	phrase	bug-collecting kit	Jay, 2026-09-21 (73d7fb7; glossary: "insect-collecting" read as stiff)
-E0113.1	phrase	bug-collecting kit	Jay, 2026-09-21 (73d7fb7)
-E0114.1	phrase	a bug-collecting kit	Jay, 2026-09-21 and 2026-09-22 (73d7fb7, 288666f)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0113.1	phrase	bug-collecting kit	Jay, 2026-09-21 (73d7fb7)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0114.1	phrase	a bug-collecting kit	Jay, 2026-09-21 and 2026-09-22 (73d7fb7, 288666f)
 E4027.0	phrase	Bug-collecting kit	Jay, 2026-09-21 (73d7fb7)
 E0341.0	phrase	harusame salad	Jay, 2026-09-21 (73d7fb7: it stays Japanese)
 E0341.4	phrase	A cafeteria without harusame salad?	Jay, 2026-09-21 (73d7fb7); lost to the TRN-10 run, restored by 931e0bb
@@ -23,7 +26,8 @@ E0202.8	phrase	captain	Jay, 2026-09-22 (288666f)
 E0220.9	phrase	captain	Jay, 2026-09-22 (288666f)
 E0302.5	phrase	captain	Jay, 2026-09-22 (288666f)
 # --- Jay's glossary review, 2026-09-23 (QUESTIONS.md Q4, Q12; commit b1c8718)
-E0174.1	phrase	That was a long trip. You did well.	Jay, 2026-09-23 (QUESTIONS Q12: no em dash)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0174.1	phrase	That was a long trip. You did well.	Jay, 2026-09-23 (QUESTIONS Q12: no em dash)
 E2303.7	phrase	Spring, Showa 17	Jay, 2026-09-20 (QUESTIONS Q10.2: "'Showa 17' is what someone back then would write")
 E0541.7	phrase	that scaredy-cat Specs	Jay, 2026-09-23 (QUESTIONS Q4: Specs; yowamushi is scaredy-cat)
 # --- Jay's ear on the voice clips, 2026-09-24 (VO-05; commit 23b8392)
@@ -90,9 +94,12 @@ btn@M_S01100.trade_plate	line	Trade	Jay, 2026-09-24 (decisions § 23b; 06f4c4f)
 tex@M_S01000.0	phrase	Trading	Jay, 2026-09-24 (decisions § 23b: the cover keeps "Trading", the balloon and plate match it)
 btn@MITIM.rare	line	Wow!	Jay, 2026-09-25 (decisions § 24b; 319f0c2)
 # --- Jay's reading of the whole translation, 2026-09-27 (TRN-04, TRN-19)
-E0140.7	phrase	pronounced	Jay, 2026-09-27 (TRN-19)
-E0177.1	phrase	pronounced	Jay, 2026-09-27 (TRN-19)
-E0179.0	phrase	pronounced	Jay, 2026-09-27 (TRN-19)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0140.7	phrase	pronounced	Jay, 2026-09-27 (TRN-19)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0177.1	phrase	pronounced	Jay, 2026-09-27 (TRN-19)
+# Superseded by this fork's human Day 1 revision, snapshot 2026-11-06.
+# Historical lock: E0179.0	phrase	pronounced	Jay, 2026-09-27 (TRN-19)
 E0710.23	phrase	Boku Kite	Jay, 2026-09-27 (TRN-19)
 E0710.38	phrase	Boku Kite	Jay, 2026-09-27 (TRN-19)
 exe@800461CC.7	phrase	Boku Kite	Jay, 2026-09-27 (TRN-19)

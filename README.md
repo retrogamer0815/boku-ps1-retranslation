@@ -6,21 +6,27 @@ replaces the upstream AI-written English with a faithful, human-reviewed transla
 the original Japanese. It retains the upstream proportional font, horizontal dialogue
 and choices, relocation, page handling, and build/lint/mockup tools.
 
-**Human review currently covers 13 entries in three Day 1 events: E0171, E0184 and E0112.**
-Eleven entries have new wording; two were accepted unchanged. The remaining English is
-inherited from upstream and has not yet received this fork's human review. The wordless
-E0184.2 sound effect remains unsubtitled. Per-entry coverage is recorded in
+**The current source includes the full Day 1 review batch: 83 human-reviewed entries and
+two drafts.** It contains the English snapshot used in Test 007 on 2026-11-06. E0121.5 and
+E0121.6 remain drafts; full Day 1 emulator review is still pending. Later days retain the
+upstream English. The wordless E0184.2 sound effect remains unsubtitled. Per-entry coverage
+and text hashes are recorded in
 [translation/human-review.tsv](translation/human-review.tsv).
 
-The pilot passed repository layout checks and testing in Beetle PSX and DuckStation
+The earlier 13-entry pilot passed repository layout checks and testing in Beetle PSX and DuckStation
 (2026-10-09). The first prerelease,
 [v0.0.1-testpilot.1](https://github.com/retrogamer0815/boku-ps1-retranslation/releases/tag/v0.0.1-testpilot.1),
-is available as an xdelta-only download and reproduces that tested image.
+is available as an xdelta-only download and reproduces that tested image. It predates
+the full Day 1 source update.
 
 Translators work in a review spreadsheet with original Japanese reference, conversation
 context, and automatic previews of the actual font widths and wrapping. Repository lint
 and game-font mockups remain the final authority. The contributor workflow is in
 [translation/README.md](translation/README.md), under "Local human review pilot".
+
+An optional [dark dialogue appearance](docs/dialogue-theme.md) uses white text over a
+translucent black band while preserving the same font metrics and wrapping. It is a
+separate test build option; the default and published pilot retain the light appearance.
 
 The game-wide features and historical decisions below describe the upstream foundation.
 
@@ -121,9 +127,11 @@ playing, so it is the one worth translating.
 ## How the translation is made
 
 **Human translation and review gradually replace the inherited English.**
-The first batch covers 13 translatable entries across E0171, E0184 and E0112; 11 have new
-wording and two were accepted unchanged. Translation review and pixel-fit validation are
-tracked separately. Upstream agent-review statuses do not indicate human review.
+The Day 1 source batch contains 85 translatable entries across 25 events: 83 marked
+human-reviewed and two still draft. All 122 page/choice previews matched the repository's
+layout checks. The Day 2 review workbook has been prepared; its English has not yet been
+imported as a human revision. Translation review, pixel-fit validation and emulator review
+are tracked separately. Upstream agent-review statuses do not indicate human review.
 The reviewed entries are listed in
 [translation/human-review.tsv](translation/human-review.tsv).
 
